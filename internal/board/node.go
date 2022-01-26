@@ -1,6 +1,7 @@
 package board
 
 type Node struct {
-	n     int16
-	edges []int16
+	Id    int16
+	E     []int16
+	Tiles []string
 }

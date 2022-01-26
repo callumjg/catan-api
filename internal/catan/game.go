@@ -1,8 +1,10 @@
 package catan
 
+import "github.com/callumjg/catan/internal/board"
+
 type Game struct {
 	Players []Player
-	Board   Board
+	Board   board.Board
 }
 
 func New() Game {
