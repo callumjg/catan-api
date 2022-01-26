@@ -8,7 +8,7 @@ const (
 )
 
 type Node struct {
-	Id       int16
+	N        int16
 	E        []int16
 	Owner    string
 	Building Building
