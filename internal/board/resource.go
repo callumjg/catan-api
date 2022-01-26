@@ -6,7 +6,7 @@ const (
 	Wheat  Resource = "Wheat"
 	Sheep           = "Sheep"
 	Wood            = "Wood"
-	Stone           = "Stone"
+	Rock            = "Rock"
 	Brick           = "Brick"
 	Desert          = "Desert"
 )

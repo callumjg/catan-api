@@ -3,7 +3,6 @@ package board
 import (
 	"math/rand"
 	"strings"
-	"time"
 )
 
 // The board is represented by a graph of nodes (1-54) and tiles (A-S)
@@ -31,18 +30,36 @@ import (
 //              \    /    \    /    \    /
 //                52        53        54
 
+type Structure int16
+
+const (
+	Settlement Structure = 0
+	City                 = 1
+)
+
+type Building struct {
+	Owner     string
+	Structure Structure
+}
+
+type Road struct {
+	Owner string
+	E     [2]int16
+}
+
 type Board struct {
 	Tiles      []Tile
 	Graph      []Node
 	RobberTile string
+	Buildings  []Building
+	Roads      []Road
 }
 
 func New() Board {
 	var b Board
-	rand.Seed(time.Now().UnixNano())
 
 	tids := [19]string{"A", "B", "C", "G", "L", "P", "S", "R", "Q", "M", "H", "D", "E", "F", "K", "O", "N", "I", "J"} // ordered according to perimeter
-	resources := [19]Resource{Wood, Wood, Wood, Wood, Wheat, Wheat, Wheat, Wheat, Sheep, Sheep, Sheep, Sheep, Stone, Stone, Stone, Brick, Brick, Brick, Desert}
+	resources := [19]Resource{Wood, Wood, Wood, Wood, Wheat, Wheat, Wheat, Wheat, Sheep, Sheep, Sheep, Sheep, Rock, Rock, Rock, Brick, Brick, Brick, Desert}
 	numbers := []int16{5, 2, 6, 3, 8, 10, 9, 12, 11, 4, 8, 10, 9, 4, 5, 6, 3, 11} // Numbers are ordered according to box set's A-R
 
 	// Cut numbers at random i

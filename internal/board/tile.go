@@ -94,7 +94,7 @@ func (t Tile) ShortString(hasRobber bool) string {
 	case Wheat:
 		col = color.Yellow
 		break
-	case Stone:
+	case Rock:
 		col = color.Purple
 		break
 	case Sheep:
